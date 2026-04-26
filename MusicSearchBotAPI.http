@@ -1,6 +1,0 @@
-@MusicSearchBotAPI_HostAddress = http://localhost:5167
-
-GET {{MusicSearchBotAPI_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
