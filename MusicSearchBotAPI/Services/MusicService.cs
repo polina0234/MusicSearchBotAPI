@@ -5,6 +5,7 @@ using System.Linq;
 using Newtonsoft.Json;
 using BotMusicSearch.Models;
 using System.Dynamic;
+using Microsoft.Extensions.Configuration;
 
 namespace MusicSearchBotAPI.Services
 {
@@ -13,7 +14,13 @@ namespace MusicSearchBotAPI.Services
         private readonly HttpClient _httpClient;
         private readonly string _rapidApiKey = "949809a65bmsh10f285348c494d5p172789jsn928be670203a";
         private readonly string _rapidApiHost = "youtube-music6.p.rapidapi.com";
-        private readonly string _youtubeApiKey = "AIzaSyD4YZMgz6w_IUsCsRmWEw4KNFnapqy1j5w";
+        private readonly string _youtubeApiKey;
+
+        public MusicService(HttpClient httpClient, IConfiguration configuration)
+        {
+            _httpClient = httpClient;
+            _youtubeApiKey = configuration["YoutubeApiKey"];
+        }
 
         public MusicService(HttpClient httpClient)
         {
